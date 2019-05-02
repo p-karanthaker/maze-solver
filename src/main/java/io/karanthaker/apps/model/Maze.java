@@ -33,6 +33,8 @@ public class Maze {
    */
   private final int[][] grid;
 
+  public static final int WALL =  1;
+
   /**
    * Constructs a Maze object using an input stream of a maze file.
    */
@@ -93,6 +95,10 @@ public class Maze {
    */
   public int[][] getGrid() {
     return grid;
+  }
+
+  public int getCellValue(Cell cell) {
+    return grid[cell.y][cell.x];
   }
 
   /**

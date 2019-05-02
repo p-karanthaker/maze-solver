@@ -12,11 +12,11 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 public class MazeTest {
 
   @DisplayName("Test Maze Objects Are Created Correctly")
-  @CsvFileSource(resources = "/mazes/mazes.csv")
+  @CsvFileSource(resources = "/sample-mazes/mazes.csv")
   @ParameterizedTest(name = "[{index}] {0}")
   public void testAllMazes(String mazeFile, int width, int height, int startX, int startY, int endX,
       int endY) {
-    try (InputStream is = getClass().getClassLoader().getResourceAsStream("mazes/" + mazeFile)) {
+    try (InputStream is = getClass().getClassLoader().getResourceAsStream("sample-mazes/" + mazeFile)) {
       Maze maze = new Maze(is);
       Assertions.assertEquals(width, maze.getWidth());
       Assertions.assertEquals(height, maze.getHeight());
