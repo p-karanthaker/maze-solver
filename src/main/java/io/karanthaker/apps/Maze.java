@@ -1,4 +1,4 @@
-package io.karanthaker.apps.model;
+package io.karanthaker.apps;
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -8,32 +8,27 @@ import java.util.Scanner;
  */
 public class Maze {
 
+  public static final int WALL = 1;
   /**
    * The width of the maze.
    */
   private final int width;
-
   /**
    * The height of the maze.
    */
   private final int height;
-
   /**
    * The coordinates of the start.
    */
   private final Cell start;
-
   /**
    * The coordinates of the end.
    */
   private final Cell end;
-
   /**
    * Representation of the maze grid.
    */
   private final int[][] grid;
-
-  public static final int WALL =  1;
 
   /**
    * Constructs a Maze object using an input stream of a maze file.

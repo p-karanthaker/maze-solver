@@ -1,4 +1,4 @@
-package io.karanthaker.apps.model;
+package io.karanthaker.apps;
 
 import java.io.InputStream;
 import org.junit.jupiter.api.Assertions;
@@ -16,7 +16,8 @@ public class MazeTest {
   @ParameterizedTest(name = "[{index}] {0}")
   public void testAllMazes(String mazeFile, int width, int height, int startX, int startY, int endX,
       int endY) {
-    try (InputStream is = getClass().getClassLoader().getResourceAsStream("sample-mazes/" + mazeFile)) {
+    try (InputStream is = getClass().getClassLoader()
+        .getResourceAsStream("sample-mazes/" + mazeFile)) {
       Maze maze = new Maze(is);
       Assertions.assertEquals(width, maze.getWidth());
       Assertions.assertEquals(height, maze.getHeight());

@@ -1,4 +1,4 @@
-package io.karanthaker.apps.model;
+package io.karanthaker.apps;
 
 public class Move {
 

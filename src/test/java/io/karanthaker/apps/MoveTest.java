@@ -1,4 +1,4 @@
-package io.karanthaker.apps.model;
+package io.karanthaker.apps;
 
 import java.io.InputStream;
 import java.util.stream.Stream;
@@ -10,6 +10,22 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 public class MoveTest {
+
+  private static Stream<Arguments> directionsAndCellsForOpenMaze() {
+    return Stream.of(
+        Arguments.of(Direction.NORTH, new Cell(1, 0)),
+        Arguments.of(Direction.EAST, new Cell(2, 1)),
+        Arguments.of(Direction.SOUTH, new Cell(1, 2)),
+        Arguments.of(Direction.WEST, new Cell(0, 1)));
+  }
+
+  private static Stream<Arguments> wrappingMoves() {
+    return Stream.of(
+        Arguments.of(Direction.NORTH, new Cell(1, 0), new Cell(1, 2)),
+        Arguments.of(Direction.EAST, new Cell(2, 1), new Cell(0, 1)),
+        Arguments.of(Direction.SOUTH, new Cell(1, 2), new Cell(1, 0)),
+        Arguments.of(Direction.WEST, new Cell(0, 1), new Cell(2, 1)));
+  }
 
   @DisplayName("Test Moves In All Directions For Open Maze")
   @MethodSource("directionsAndCellsForOpenMaze")
@@ -39,21 +55,5 @@ public class MoveTest {
 
     Cell actual = Move.check(maze, start, direction);
     Assertions.assertEquals(expected, actual);
-  }
-
-  private static Stream<Arguments> directionsAndCellsForOpenMaze() {
-    return Stream.of(
-        Arguments.of(Direction.NORTH, new Cell(1, 0)),
-        Arguments.of(Direction.EAST, new Cell(2, 1)),
-        Arguments.of(Direction.SOUTH, new Cell(1, 2)),
-        Arguments.of(Direction.WEST, new Cell(0, 1)));
-  }
-
-  private static Stream<Arguments> wrappingMoves() {
-    return Stream.of(
-        Arguments.of(Direction.NORTH, new Cell(1, 0), new Cell(1, 2)),
-        Arguments.of(Direction.EAST, new Cell(2, 1), new Cell(0, 1)),
-        Arguments.of(Direction.SOUTH, new Cell(1, 2), new Cell(1, 0)),
-        Arguments.of(Direction.WEST, new Cell(0, 1), new Cell(2, 1)));
   }
 }
