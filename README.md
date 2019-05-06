@@ -3,13 +3,24 @@ A program to solve simple mazes. The mazes are given in a file and the program m
 file, solve the maze, and output the solution.
 
 ## Table of Contents
-1. [Maze Input/Output Formats](#maze-inputoutput-formats)
-2. [Maze Input Format](#input-format)
-3. [Maze Output Format](#output-format)
-4. [Movement](#movement)
-5. [Horizontal Wrapping](#horizontal)
-6. [Vertical Wrapping](#vertical)
+1. [Running The Application](#running-the-application)
+2. [Maze Input/Output Formats](#maze-inputoutput-formats)
+3. [Maze Input Format](#input-format)
+4. [Maze Output Format](#output-format)
+5. [Movement](#movement)
+6. [Horizontal Wrapping](#horizontal)
+7. [Vertical Wrapping](#vertical)
 
+## Running The Application
+In order to run the application either build it at the command line using:
+```mvn clean compile package```
+
+or, download the compiled application from the releases page.
+
+Once you have the maze-solver-1.0-RELEASE.jar, run it from a command window using:
+```java -jar maze-solver-1.0-RELEASE.jar```
+
+Follow the on-screen instructions once the application is running.
 
 ## Maze Input/Output Formats
 ### Input Format

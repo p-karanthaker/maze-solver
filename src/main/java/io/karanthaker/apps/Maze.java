@@ -8,7 +8,8 @@ import java.util.Scanner;
  */
 public class Maze {
 
-  public static final int WALL = 1;
+  public static final String WALL = "#";
+  public static final String PATH = " ";
   /**
    * The width of the maze.
    */
@@ -28,7 +29,7 @@ public class Maze {
   /**
    * Representation of the maze grid.
    */
-  private final int[][] grid;
+  private final String[][] grid;
 
   /**
    * Constructs a Maze object using an input stream of a maze file.
@@ -48,11 +49,17 @@ public class Maze {
     y = scanner.nextInt();
     end = new Cell(x, y);
 
-    grid = new int[height][width];
+    grid = new String[height][width];
 
     for (int i = 0; i < height; i++) {
       for (int j = 0; j < width; j++) {
-        grid[i][j] = scanner.nextInt();
+        int next = scanner.nextInt();
+        String toAdd = PATH;
+        if (next == 1) {
+          toAdd = WALL;
+        }
+
+        grid[i][j] = toAdd;
       }
     }
   }
@@ -88,11 +95,11 @@ public class Maze {
   /**
    * @return 2-d array of the maze grid.
    */
-  public int[][] getGrid() {
+  public String[][] getGrid() {
     return grid;
   }
 
-  public int getCellValue(Cell cell) {
+  public String getCellValue(Cell cell) {
     return grid[cell.y][cell.x];
   }
 
